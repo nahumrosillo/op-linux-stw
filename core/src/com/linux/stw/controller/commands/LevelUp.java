@@ -8,19 +8,21 @@
 
 package com.linux.stw.controller.commands;
 
+import com.badlogic.gdx.Gdx;
+import com.linux.stw.character.Playable;
 import com.linux.stw.character.hero.Hero;
 
 /**
- * Created by nahum on 10/02/17.
+ * Created by nahum on 13/02/17.
  */
-public class MoveHeroDown implements CommandControl
+public class LevelUp implements CommandControl
 {
     @Override
     public void execute(Object obj)
     {
-        Hero hero = (Hero) obj;
-        hero.getPosition().add(0, -10);
-        hero.getRectangle().x = hero.getPosition().x;
-        hero.getRectangle().y = hero.getPosition().y;
+        Playable playable = (Playable) obj;
+        playable.getExperience().levelUp();
+        Gdx.app.log("LevelUp Command", "Level Up! " + playable.getExperience().getCurrentLevel());
+        Gdx.app.log("Tag"," " +  250 / playable.getStats().getSpd());
     }
 }

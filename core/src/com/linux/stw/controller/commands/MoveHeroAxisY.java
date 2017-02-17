@@ -9,7 +9,7 @@
 package com.linux.stw.controller.commands;
 
 import com.badlogic.gdx.math.Vector2;
-import com.linux.stw.character.player.Hero;
+import com.linux.stw.character.hero.Hero;
 
 /**
  * Created by nahum on 10/02/17.
@@ -21,5 +21,7 @@ public class MoveHeroAxisY implements AxisControl
     {
         Hero hero = (Hero) obj;
         hero.getPosition().add(new Vector2(0, 10 * -value));
+        hero.getRectangle().x = hero.getPosition().x;
+        hero.getRectangle().y = hero.getPosition().y;
     }
 }

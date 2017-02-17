@@ -1,6 +1,9 @@
 package character;
 
 import com.linux.stw.character.*;
+import com.linux.stw.character.hero.Defensive;
+import com.linux.stw.character.hero.Equilibrate;
+import com.linux.stw.character.hero.Savage;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,7 +13,7 @@ public class StatTest
     @Test
     public void createEquilibrate()
     {
-        Stats stat = new com.linux.stw.character.player.Equilibrate();
+        Stats stat = new Equilibrate();
 
         Assert.assertEquals(100, stat.getHp());
         Assert.assertEquals(10, stat.getStr());
@@ -22,7 +25,7 @@ public class StatTest
     @Test
     public void createSavage()
     {
-        Stats stats = new com.linux.stw.character.player.Savage();
+        Stats stats = new Savage();
 
         Assert.assertEquals(100, stats.getHp());
         Assert.assertEquals(15, stats.getStr());
@@ -34,7 +37,7 @@ public class StatTest
     @Test
     public void createDefensive()
     {
-        Stats stats = new com.linux.stw.character.player.Defensive();
+        Stats stats = new Defensive();
 
         Assert.assertEquals(125, stats.getHp());
         Assert.assertEquals(10, stats.getStr());
@@ -46,7 +49,7 @@ public class StatTest
     @Test
     public void incrementHP()
     {
-        Stats stats = new com.linux.stw.character.player.Equilibrate();
+        Stats stats = new Equilibrate();
 
         stats.incrementHP(100);
         Assert.assertEquals(200, stats.getHp());
@@ -64,7 +67,7 @@ public class StatTest
     @Test
     public void incrementSTR()
     {
-        Stats stats = new com.linux.stw.character.player.Equilibrate();
+        Stats stats = new Equilibrate();
 
         stats.incrementSTR(100);
         Assert.assertEquals(110, stats.getStr());
@@ -83,7 +86,7 @@ public class StatTest
     @Test
     public void incrementDEF()
     {
-        Stats stats = new com.linux.stw.character.player.Savage();
+        Stats stats = new Savage();
 
         stats.incrementDEF(100);
         Assert.assertEquals(107.0f, stats.getDef(), 0);
@@ -101,7 +104,7 @@ public class StatTest
     @Test
     public void incrementSPD()
     {
-        Stats stats = new com.linux.stw.character.player.Equilibrate();
+        Stats stats = new Equilibrate();
 
         stats.incrementSPD(0.24f);
         Assert.assertEquals(1.24f, stats.getSpd(), 0);

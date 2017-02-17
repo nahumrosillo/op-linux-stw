@@ -1,6 +1,6 @@
 package character;
 
-import com.linux.stw.character.player.Equilibrate;
+import com.linux.stw.character.hero.Equilibrate;
 import com.linux.stw.character.Experience;
 import com.linux.stw.character.LinealExperience;
 import com.linux.stw.character.Stats;

@@ -47,6 +47,11 @@ public abstract class Stats
         hp += incLife;
     }
 
+    public void decrementHP(int decHP)
+    {
+        hp -= decHP;
+    }
+
     public void incrementSTR(int incSTR)
     {
         assert (incSTR >= 0);

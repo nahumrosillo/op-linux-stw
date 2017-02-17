@@ -1,11 +1,3 @@
-/*
- * Copyright (c) 2017. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
- * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
- * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
- * Vestibulum commodo. Ut rhoncus gravida arcu.
- */
-
 package com.linux.stw.character.weapon;
 
 import com.badlogic.gdx.Gdx;
@@ -20,38 +12,25 @@ import com.linux.stw.util.CollisionManager;
 /**
  * Created by nahum on 11/02/17.
  */
-public class BulletTest extends Bullet
+public class BulletBoss extends Bullet
 {
     private Weapon weapon;
     private int n;
-    private int counter = 0;
-    private static Texture tex = new Texture(Gdx.files.internal("bullet.png"));
+    private static Texture tex = new Texture(Gdx.files.internal("data/enemy/tomato/bullet.png"));
 
     private Vector2 v;
     private Vector2 vector2;
 
     long time;
 
-    public BulletTest(Playable playable, Weapon weapon)
-    {
-        this.player = playable;
-        this.weapon = weapon;
-
-        this.position = new Vector2(player.getPosition().x, playable.getPosition().y);
-        rectangle = new Rectangle(position.x, position.y, tex.getWidth(), tex.getHeight());
-
-
-        time = System.currentTimeMillis();
-    }
-
-    public BulletTest(Playable playable, Weapon weapon, int n, Vector2 v)
+    public BulletBoss(Playable playable, Weapon weapon, int n, Vector2 v)
     {
         this.player = playable;
         this.weapon = weapon;
         this.n=n;
 
-        this.position = new Vector2(player.getPosition().x+28, playable.getPosition().y+60);
-        texture = new Texture("bullet.png");
+        this.position = new Vector2(player.getPosition().x+28, playable.getPosition().y-40);
+        texture = new Texture("data/enemy/tomato/bullet.png");
         rectangle = new Rectangle(position.x, position.y, tex.getWidth(), tex.getHeight());
 
         time = System.currentTimeMillis();
@@ -66,20 +45,21 @@ public class BulletTest extends Bullet
         this.v = v;
     }
 
-    public BulletTest(Playable playable, Weapon weapon, int n)
+    public BulletBoss(Playable playable, Weapon weapon, int n)
     {
         this.player = playable;
         this.weapon = weapon;
         this.n=n;
 
-        this.position = new Vector2(player.getPosition().x+28, playable.getPosition().y+80);
-        texture = new Texture("bullet.png");
+        this.position = new Vector2(player.getPosition().x+28, playable.getPosition().y-40);
+        texture = new Texture("data/enemy/tomato/bullet.png");
         rectangle = new Rectangle(position.x, position.y, tex.getWidth(), tex.getHeight());
 
         time = System.currentTimeMillis();
 
         CollisionManager.getInstance().add(this.getRectangle());
-        v = null;
+
+        this.vector2 = new Vector2(MathUtils.random(-1.0f, 1.0f), 1);
     }
 
     @Override
@@ -87,7 +67,7 @@ public class BulletTest extends Bullet
     {
         long timeActual = System.currentTimeMillis();
 
-        if ((timeActual - time) > 500)
+        if ((timeActual - time) > 3000)
         {
             time = System.currentTimeMillis();
             weapon.bullets.removeValue(this, true);
@@ -95,14 +75,9 @@ public class BulletTest extends Bullet
         }
         else
         {
-            position.y += 18;
-            counter += n;
-            int num = 80;
-            if (counter >= num || counter <= -num)
-                position.x -= n;
-            else
-                position.x += n;
-
+            float speed = MathUtils.random(2.0f, 10.0f);
+            position.x -= vector2.x * speed;
+            position.y -= vector2.y * speed;
             rectangle.setPosition(position);
         }
     }

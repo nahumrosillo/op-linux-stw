@@ -6,7 +6,12 @@ package com.linux.stw.character;
 public class LinealExperience extends Experience
 {
 
-    public LinealExperience() {}
+    public LinealExperience()
+    {
+        this.currentLevel = 1;
+        this.amountExp = 0;
+        this.nextLevel = 100;
+    }
 
     public LinealExperience(Stats stats, int currentLevel)
     {

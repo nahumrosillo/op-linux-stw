@@ -1,11 +1,13 @@
 package com.linux.stw.character;
 
+import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Disposable;
 import com.linux.stw.character.weapon.Weapon;
+import com.linux.stw.controller.PollingController;
 
 /**
  * Created by nahum on 08/02/17.
@@ -13,18 +15,21 @@ import com.linux.stw.character.weapon.Weapon;
 public abstract class Playable implements Disposable
 {
     protected String name;
-
+    protected PollingController controller;
     protected Stats stats;
     protected Experience experience;
 
     protected Rectangle rectangle;
     protected Texture texture;
     protected Vector2 position;
-
+    protected Playable player;
     protected Weapon weapon;
 
     public abstract void update(float delta);
     public abstract void draw(SpriteBatch batch);
+
+    public void setPlayer (Playable player) { this.player = player; }
+    public void setController(PollingController controller) { this.controller = controller; }
 
     @Override
     public void dispose ()
@@ -93,4 +98,6 @@ public abstract class Playable implements Disposable
 
         return s;
     }
+
+
 }

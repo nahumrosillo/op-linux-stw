@@ -23,10 +23,18 @@ public abstract class Experience
         return nextLevel;
     }
 
-    protected void levelUp()
+    public Stats getStats() { return stats; }
+
+    public void levelUp()
     {
         currentLevel++;
         updateStats();
+    }
+
+    public void levelUp(int numlevels)
+    {
+        for (int i = 0; i < numlevels; i++)
+            levelUp();
     }
 
     protected void updateStats() {}
@@ -43,9 +51,7 @@ public abstract class Experience
         amountExp += valueExp;
 
         if (checkLevelUp())
-        {
             levelUp();
-        }
     }
 
     @Override

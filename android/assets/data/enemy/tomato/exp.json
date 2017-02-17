@@ -1,0 +1,11 @@
+{
+stats: {
+	class: com.linux.stw.character.hero.Equilibrate
+	spd_attack: 1
+    life: 1
+	hp: 120
+	str: 15
+	def: 15
+    score: 200
+}
+}

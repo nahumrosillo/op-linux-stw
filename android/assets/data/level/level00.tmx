@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-down" width="32" height="128" tilewidth="32" tileheight="32" nextobjectid="16">
+ <tileset firstgid="1" name="TileSet" tilewidth="32" tileheight="32" tilecount="400">
+  <image source="tileset01.png" width="640" height="640"/>
+ </tileset>
+ <layer name="Fondo1" width="32" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt2EtOwzAQxvHJgtcREDtgjdryPACPAr0AVAJOA0tOQXui3qeDwFIUkTTUjsdx/4vfMv7G9sSN+1KIvBp5U4fqyMixulCXRq7IJ3/D8x/Uo5GJGqqRkVN1o26N3JXyz9RCRD6Lbn1nnP+RHyO7XEM1P1a2k9r8xxH3/740/yf13IJ7psm45VjOVJ1IOwdqe4X9lmOtq6mGrrMBAMBm2EugBuYDIBWcIUjFlvzc/XfUrtCbQBXvBOCP96jel5qpeQK1IJy+9Hxf6kR/DQKM4dOn1781hKjDpwZXh+Ve5LYWvn1huRcA6vmeD77fNpwPyFEK3yDWa7BKiHtRzner3Hoo573Cev0asidin3n0c//kdqZ2uU4x1mpQw/1/ESunipzmzC5z6sTKyRG/VcD/vRciH4aWgL09qQ==
+  </data>
+ </layer>
+ <layer name="Fondo2" width="32" height="128">
+  <data encoding="base64" compression="zlib">
+   eJzt00sKwjAUBdA6dCLoovwtwd8S/OGaBV2CoPgcdBIUI1JT8Dy40LRpDiQvVVW29p1y9qHD57fTPyXjY8Z66ZzzF/41GV8y/HTO7Qu/n7zvZZxTOmfw5p82nz+fzy/rLyLLH/iTeJ4++b6N7N6s0f3QnEXmkVVVZv/XkU1kX8h/VL3Xbe+/f/Lrvmz6zr3y677MuXNN+CUq1x9GRpFxIb+p4vP5fD6fz+fz+Xw+n8/n8/l8Pp/P5/P5fD6fz+fz+Xw+n8/n8/l8Pp/Pz/FL1x269ILl
+  </data>
+ </layer>
+ <objectgroup name="Events">
+  <object id="2" name="tomato" type="Playable" x="447" y="97" width="66" height="61"/>
+  <object id="3" name="attack" x="323" y="331" width="322" height="210">
+   <properties>
+    <property name="boss" value="tomato"/>
+   </properties>
+  </object>
+  <object id="12" x="1007" y="2432" height="476"/>
+ </objectgroup>
+</map>

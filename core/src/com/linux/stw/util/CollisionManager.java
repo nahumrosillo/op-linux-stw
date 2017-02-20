@@ -1,7 +1,6 @@
 package com.linux.stw.util;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
@@ -26,7 +25,7 @@ public class CollisionManager
 
     private CollisionManager()
     {
-        quadTree = new QuadTree(0, new Rectangle(0, 0, Constants.WIDTH_REAL, Constants.HEIGHT_REAL));
+        quadTree = new QuadTree(0, new Rectangle(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
         list = new Array<Rectangle>();
         playableArray = new Array<Playable>();
     }

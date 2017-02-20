@@ -1,10 +1,10 @@
 package com.linux.stw.character.hero;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.linux.stw.OPLinuxSTWMain;
 import com.linux.stw.character.Experience;
 import com.linux.stw.character.Playable;
 import com.linux.stw.character.Stats;
@@ -13,7 +13,6 @@ import com.linux.stw.controller.PollingController;
 import com.linux.stw.controller.ProfileControl;
 import com.linux.stw.controller.commands.*;
 import com.linux.stw.util.CollisionManager;
-import com.linux.stw.util.Constants;
 
 /**
  * Created by nahum on 08/02/17.
@@ -58,8 +57,8 @@ public class Hero extends Playable
         controller.update();
         weapon.update(delta);
 
-        position.x = MathUtils.clamp(position.x, 0, Constants.WIDTH_REAL-getTexture().getWidth());
-        position.y = MathUtils.clamp(position.y, 0, Constants.HEIGHT_LEVEL-getTexture().getHeight());
+        position.x = MathUtils.clamp(position.x, 0, Gdx.graphics.getWidth()-getTexture().getWidth());
+        position.y = MathUtils.clamp(position.y, 0, Gdx.graphics.getHeight()-getTexture().getHeight());
 
         rectangle.setPosition(position);
     }
